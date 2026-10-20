@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu Thành Viên Nhóm | Dự Án AR-26710</title>
+    
+    <!-- =================================================================
+         [SYSTEM LOG: IRON CAVALRY UNIT AR-26710 - STATUS: ONLINE]
+         Directive: "Find your own dream... and set the seas ablaze."
+         Location : Secret Base (Dream's Edge)
+         ================================================================= -->
+
+    <style>
+        /* 1. Thiết lập chung (Reset CSS & Box Model) */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* 2. Phần Đầu trang - Bầu trời đêm Căn cứ Bí mật (Dream's Edge) */
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0f766e 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 45px 20px;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #2dd4bf; /* Đường viền xanh ngọc Firefly */
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Ngôi sao đom đóm nhỏ trên tiêu đề */
+        .star-spark {
+            color: #fde047;
+            font-size: 24px;
+            vertical-align: middle;
+        }
+
+        header p {
+            font-size: 16px;
+            color: #ccfbf1;
+        }
+
+        /* 3. Khung chứa chính & Dàn trang Flexbox */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* 4. Thẻ thành viên tiêu chuẩn (Bộ chọn Lớp .class) */
+        .member-card {
+            background-color: #ffffff;
+            width: 23%;
+            min-width: 250px;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            flex-grow: 1;
+            user-select: none; /* Tránh bôi đen chữ khi nhấn giữ chuột */
+        }
+
+        /* Hiệu ứng :hover mặc định cho các thành viên khác */
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+            border-color: #3b82f6;
+        }
+
+        /* ===============================================================
+           EASTER EGG: BỘ CHỌN ĐỊNH DANH (#ar-26710) DÀNH RIÊNG CHO NHÓM TRƯỞNG
+           =============================================================== */
+        
+        /* Trạng thái 1 (:hover) - Hào quang Xanh Ngọc Đom Đóm của Firefly */
+        #ar-26710:hover {
+            border-color: #14b8a6;
+            box-shadow: 0 12px 24px rgba(20, 184, 166, 0.28);
+        }
+
+        #ar-26710:hover .avatar {
+            border-color: #14b8a6;
+        }
+
+        #ar-26710:hover .member-role {
+            background-color: #ccfbf1;
+            color: #0f766e;
+        }
+
+        #ar-26710:hover .btn-contact {
+            background-color: #0d9488;
+        }
+
+        /* Trạng thái 2 (:active - Nhấn giữ chuột) - Dạng SAM "Thiêu Đốt Hoàn Toàn" */
+        #ar-26710:active {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #f59e0b;
+            background-color: #fffbeb;
+            box-shadow: 0 0 28px rgba(245, 158, 11, 0.55);
+        }
+
+        #ar-26710:active .avatar {
+            border-color: #f59e0b;
+        }
+
+        #ar-26710:active .member-role {
+            background-color: #fef3c7;
+            color: #b45309;
+        }
+
+        #ar-26710:active .btn-contact {
+            background-color: #ea580c;
+        }
+
+        /* 5. Các thành phần bên trong thẻ */
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3b82f6;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        .member-name {
+            font-size: 20px;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        .member-info {
+            list-style-type: none;
+            text-align: left;
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 20px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+        }
+
+        .member-info li {
+            margin-bottom: 8px;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #2563eb;
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .btn-contact:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* 6. Phần Chân trang (Footer) */
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            background-color: #e2e8f0;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .secret-code {
+            color: #0d9488;
+            font-weight: bold;
+            cursor: help;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PHẦN ĐẦU TRANG -->
+    <header>
+        <h1><span class="star-spark" title="Firefly">✦</span> NHÓM THIẾT KẾ Ebook 12A10 <span class="star-spark" title="Hotaru">✦</span></h1>
+        <p>Giới thiệu Thành viên — Mã nhóm: <strong>AR-26710</strong></p>
+    </header>
+
+    <!-- PHẦN NỘI DUNG CHÍNH -->
+    <main class="container">
+        <section class="team-grid">
+
+            <!-- THÀNH VIÊN 1 (Thẻ có tích hợp Easter Egg #ar-26710) -->
+            <div class="member-card" id="ar-26710">
+                <img src="Hy.jpeg" 
+                     alt="Ảnh Thành viên 1" 
+                     class="avatar" 
+                     title="Like fireflies to a flame, life begets death...">
+                <h3 class="member-name">Vũ Gia Hy</h3>
+                <span class="member-role" title="Unit AR-26710 | Set the seas ablaze!">Thiết kế bố cục</span>
+                <ul class="member-info">
+                    <li><strong>Ngày sinh:</strong> 18/11/2009</li>
+                    <li><strong>Sở trường:</strong> Kỹ thuật</li>
+                    <li title="Món tráng miệng yêu thích: Bánh Cuộn Gỗ Sồi (Oak Cake Rolls)"><strong>Sở thích:</strong> <a href="https://honkai-star-rail.fandom.com/wiki/Firefly">Firefly</a>, công nghệ</li>
+                </ul>
+                <a href="https://www.facebook.com/Hydzvl" class="btn-contact" title="Nhấn giữ chuột vào thẻ để kích hoạt Thiêu Đốt Hoàn Toàn!">Xem hồ sơ</a>
+            </div>
+
+            <!-- THÀNH VIÊN 2 -->
+            <div class="member-card">
+                <img src="XT.jpg" alt="Ảnh Thành viên 2" class="avatar">
+                <h3 class="member-name">Phạm Xuân Trang</h3>
+                <span class="member-role">Trưởng nhóm phát triển</span>
+                <ul class="member-info">
+                    <li><strong>Ngày sinh:</strong> 20/02/2009</li>
+                    <li><strong>Sở trường:</strong> Tin học</li>
+                    <li><strong>Sở thích:</strong> Thiết kế đồ họa, Đọc sách</li>
+                </ul>
+                <a href="https://www.facebook.com/profile.php?id=100083349219608" class="btn-contact">Xem hồ sơ</a>
+            </div>
+
+            <!-- THÀNH VIÊN 3 -->
+            <div class="member-card">
+                <img src="AQ.webp" alt="Ảnh Thành viên 3" class="avatar">
+                <h3 class="member-name">Nguyễn Phạm Anh Quốc</h3>
+                <span class="member-role">Biên tập Nội dung</span>
+                <ul class="member-info">
+                    <li><strong>Ngày sinh:</strong> 27/03/2009</li>
+                    <li><strong>Sở trường:</strong> wibu lỏ</li>
+                    <li><strong>Sở thích:</strong> Nghe nhạc</li>
+                </ul>
+                <a href="https://www.facebook.com/quoc.nguyen.anh.359619" class="btn-contact">Xem hồ sơ</a>
+            </div>
+
+            <!-- THÀNH VIÊN 4 -->
+            <div class="member-card">
+                <img src="MTR.jpg" alt="Ảnh Thành viên 4" class="avatar">
+                <h3 class="member-name">Nguyễn Trần Minh Thái</h3>
+                <span class="member-role">Hình ảnh & Kiểm duyệt</span>
+                <ul class="member-info">
+                    <li><strong>Ngày sinh:</strong> 10/11/2009</li>
+                    <li><strong>Sở trường:</strong> Ngoại ngữ</li>
+                    <li><strong>Sở thích:</strong> Ngủ</li>
+                </ul>
+                <a href="https://www.facebook.com/thai.minh.691039" class="btn-contact">Xem hồ sơ</a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- PHẦN CHÂN TRANG -->
+    <footer>
+        <p>
+            &copy; 2026 Bản quyền thuộc về Nhóm Tin Học 12A10 • 
+            Phiên bản <span class="secret-code" title="Secret Base - Dream's Edge | Vì một ngày mai rực rỡ">AR-26710</span> 
+            (Thiết kế bằng HTML5 &amp; CSS3)
+        </p>
+		<P> Trang web có sự hỗ trợ từ <em>Gemini 4 Argon</em> </P>
+    </footer>
+
+</body>
+</html>
